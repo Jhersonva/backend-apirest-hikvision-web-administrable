@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserSeeder extends Seeder
 {
@@ -15,10 +16,10 @@ class AdminUserSeeder extends Seeder
         // Verificamos si ya existe un admin
         if (!User::where('role', User::ROLE_ADMIN)->exists()) {
             User::create([
-                'username' => 'admin',
-                'email'    => 'admin@hikvision.com',
+                'username' => env('ADMIN_USERNAME'),
+                'email'    => env('ADMIN_EMAIL'),
                 'role'     => User::ROLE_ADMIN,
-                'password' => 'admin123', 
+                'password' => env('ADMIN_PASSWORD'),
             ]);
         }
     }
