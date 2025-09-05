@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\SocialNetwork\SocialNetworkController;
 use App\Http\Controllers\Api\ContactInformationCompany\ContactInformationCompanyController;
 use App\Http\Controllers\Api\AuthUsers\AuthUserController;
 use App\Http\Middleware\IsAdmin;
@@ -24,6 +25,12 @@ Route::prefix('admin')->group(function () {
             //ContactInformationCompany
             Route::get('contact-information-company', [ContactInformationCompanyController::class, 'index']);
             Route::post('contact-information-company', [ContactInformationCompanyController::class, 'update']);
+
+            //SocialNetwork
+            Route::get('social-networks', [SocialNetworkController::class, 'index']);
+            Route::post('social-networks', [SocialNetworkController::class, 'store']);
+            Route::put('social-networks/{id}', [SocialNetworkController::class, 'update']);
+            Route::delete('social-networks/{id}', [SocialNetworkController::class, 'destroy']);
         });
     });
 });

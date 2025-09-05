@@ -36,7 +36,7 @@ class ContactInformationCompanyController extends Controller
         // Si viene archivo
         if ($request->hasFile('company_logo')) {
             $logoUrl = $this->service->updateLogo($request->file('company_logo'));
-            $data['company_logo'] = str_replace(asset("storage/"), '', $logoUrl); // guardamos solo el path relativo
+            $data['company_logo'] = str_replace(asset("storage/"), '', $logoUrl);
         }
 
         $company = $this->service->updateInfo($data);
