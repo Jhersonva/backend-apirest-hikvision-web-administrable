@@ -16,10 +16,10 @@ class AdminUserSeeder extends Seeder
         // Verificamos si ya existe un admin
         if (!User::where('role', User::ROLE_ADMIN)->exists()) {
             User::create([
-                'username' => env('ADMIN_USERNAME'),
-                'email'    => env('ADMIN_EMAIL'),
+                'username' => config('admin.username'),
+                'email'    => config('admin.email'),
                 'role'     => User::ROLE_ADMIN,
-                'password' => env('ADMIN_PASSWORD'),
+                'password' => config('admin.password'),
             ]);
         }
     }

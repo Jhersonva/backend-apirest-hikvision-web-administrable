@@ -1,0 +1,26 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('service_category_id')->constrained('service_categories') ->onDelete('cascade');
+            $table->string('main_title', 150);
+            $table->string('icon_service')->nullable();
+            $table->string('name_services', 100);
+            $table->text('description_services')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('services');
+    }
+};
