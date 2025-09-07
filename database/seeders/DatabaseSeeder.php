@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             AboutUsSeeder::class,
             VideoInformationAndSolutionSeeder::class,
+            CounterServiceSeeder::class,
+            PortfolioCategorySeeder::class,
+            InformationContactSeeder::class,
         ]);
     }
 }

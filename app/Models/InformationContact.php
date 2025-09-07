@@ -5,23 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUs extends Model
+class InformationContact extends Model
 {
     use HasFactory;
 
-    protected $table = 'about_us';
+    protected $table = 'information_contact';
 
     protected $fillable = [
+        'img_information_contact',
         'main_title',
         'description',
-        'list_about_us',
-        'img_about',
-        'experience',
-        'number_about_us',
-    ];
-
-    protected $casts = [
-        'list_about_us' => 'array',
     ];
 
     protected $hidden = [
@@ -30,11 +23,11 @@ class AboutUs extends Model
     ];
 
     // Accessor para devolver URL completa de la imagen
-    protected $appends = ['img_about_url'];
+    protected $appends = ['img_information_contact_url'];
 
-    public function getImgAboutUrlAttribute()
+    public function getImgInformationContactUrlAttribute()
     {
-        return $this->img_about ? asset('storage/' . $this->img_about) : null;
+        return $this->img_information_contact ? asset('storage/' . $this->img_information_contact) : null;
     }
 
     // Forzar orden del JSON
@@ -44,10 +37,7 @@ class AboutUs extends Model
             'id' => $this->id,
             'main_title' => $this->main_title,
             'description' => $this->description,
-            'list_about_us' => $this->list_about_us,
-            'img_about' => $this->img_about_url,
-            'experience' => $this->experience,
-            'number_about_us' => $this->number_about_us,
+            'img_information_contact' => $this->img_information_contact_url,
         ];
     }
 }

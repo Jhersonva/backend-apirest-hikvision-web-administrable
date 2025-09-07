@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\PaymentPlan\PaymentPlanController;
+use App\Http\Controllers\Api\InformationContact\InformationContactController;
+use App\Http\Controllers\Api\Portfolio\PortfolioController;
+use App\Http\Controllers\Api\PortfolioCategory\PortfolioCategoryController;
+use App\Http\Controllers\Api\CounterService\CounterServiceController;
 use App\Http\Controllers\Api\Servics\ServiceController;
 use App\Http\Controllers\Api\ServiceCategory\ServiceCategoryController;
 use App\Http\Controllers\Api\VideoInformationAndSolution\VideoInformationAndSolutionController;
@@ -52,7 +57,7 @@ Route::prefix('admin')->group(function () {
 
             // AboutUs
             Route::get('about-us', [AboutUsController::class, 'getInfo']);
-            Route::put('about-us', [AboutUsController::class, 'update']);
+            Route::put('about-us/update', [AboutUsController::class, 'update']);
 
             // list_about_us CRUD
             Route::get('about-us/list', [AboutUsController::class, 'listAll']);
@@ -62,7 +67,7 @@ Route::prefix('admin')->group(function () {
 
             // VideoInformationAndSolution
             Route::get('video-information-and-solution', [VideoInformationAndSolutionController::class, 'getInfo']);
-            Route::put('video-information-and-solution', [VideoInformationAndSolutionController::class, 'update']);
+            Route::put('video-information-and-solution/update', [VideoInformationAndSolutionController::class, 'update']);
 
             // ServiceCategory
             Route::get('service-categories', [ServiceCategoryController::class, 'index']);
@@ -75,6 +80,32 @@ Route::prefix('admin')->group(function () {
             Route::post('services', [ServiceController::class, 'store']);
             Route::put('services/{id}', [ServiceController::class, 'update']);
             Route::delete('services/{id}', [ServiceController::class, 'destroy']);
+
+            // CounterServices
+            Route::get('counter-services', [CounterServiceController::class, 'index']);
+            Route::put('counter-services/{id}', [CounterServiceController::class, 'update']);
+
+            // PortfolioCategory
+            Route::get('portfolio-categories', [PortfolioCategoryController::class, 'index']);
+            Route::post('portfolio-categories', [PortfolioCategoryController::class, 'store']);
+            Route::put('portfolio-categories/{id}', [PortfolioCategoryController::class, 'update']);
+            Route::delete('portfolio-categories/{id}', [PortfolioCategoryController::class, 'destroy']);
+
+            // Portfolio
+            Route::get('portfolios', [PortfolioController::class, 'index']);
+            Route::post('portfolios', [PortfolioController::class, 'store']);
+            Route::put('portfolios/{id}', [PortfolioController::class, 'update']);
+            Route::delete('portfolios/{id}', [PortfolioController::class, 'destroy']);
+
+            // InformationContact
+            Route::get('information-contact', [InformationContactController::class, 'getInfo']);
+            Route::put('information-contact/update', [InformationContactController::class, 'update']);
+
+            // PaymentPlan
+            Route::get('payment-plans', [PaymentPlanController::class, 'index']);
+            Route::post('payment-plans', [PaymentPlanController::class, 'store']);
+            Route::put('payment-plans/{id}', [PaymentPlanController::class, 'update']);
+            Route::delete('payment-plans/{id}', [PaymentPlanController::class, 'destroy']);
         });
     });
 });
