@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\Blog\BlogController;
+use App\Http\Controllers\Api\BannerPage\BannerPageController;
+use App\Http\Controllers\Api\Faq\FaqController;
 use App\Http\Controllers\Api\Partner\PartnerController;
 use App\Http\Controllers\Api\OurTeam\OurTeamController;
 use App\Http\Controllers\Api\SpecialtyCategory\SpecialtyCategoryController;
@@ -151,10 +154,26 @@ Route::prefix('admin')->group(function () {
             Route::put('our-team/{id}', [OurTeamController::class, 'update']);
             Route::delete('our-team/{id}', [OurTeamController::class, 'destroy']);
         
+            // Partners
             Route::get('partners', [PartnerController::class, 'index']);
             Route::post('partners', [PartnerController::class, 'store']);
             Route::put('partners/{id}', [PartnerController::class, 'update']);
             Route::delete('partners/{id}', [PartnerController::class, 'destroy']);
+
+            // Faq
+            Route::get('faqs', [FaqController::class, 'index']);
+            Route::post('faqs', [FaqController::class, 'store']);
+            Route::put('faqs/{id}', [FaqController::class, 'update']);
+            Route::delete('faqs/{id}', [FaqController::class, 'destroy']);
+
+            // BannerPages
+            Route::get('banner-pages', [BannerPageController::class, 'index']);       
+            Route::put('banner-pages/{id}', [BannerPageController::class, 'update']);  
+
+            Route::get('blogs', [BlogController::class, 'index']);
+            Route::post('blogs/', [BlogController::class, 'store']);
+            Route::put('blogs/{id}', [BlogController::class, 'update']);
+            Route::delete('blogs/{id}', [BlogController::class, 'destroy']);
         });
     });
 });
