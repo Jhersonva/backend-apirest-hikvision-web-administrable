@@ -11,7 +11,6 @@ class Service extends Model
 
     protected $fillable = [
         'service_category_id',
-        'main_title',
         'icon_service',
         'name_services',
         'description_services',
@@ -48,7 +47,6 @@ class Service extends Model
                 'id' => $this->category->id,
                 'titulo_service_category' => $this->category->titulo_service_category,
             ] : null,
-            'main_title' => $this->main_title,
             'icon_service' => $this->icon_service_url,
             'name_services' => $this->name_services,
             'description_services' => $this->description_services,

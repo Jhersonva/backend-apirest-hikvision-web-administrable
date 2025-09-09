@@ -15,7 +15,6 @@ class UpdateServiceRequest extends FormRequest
     {
         return [
             'service_category_id'    => 'sometimes|exists:service_categories,id',
-            'main_title'             => 'sometimes|string|max:150',
             'icon_service'           => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'name_services'          => 'sometimes|string|max:100',
             'description_services'   => 'sometimes|string',

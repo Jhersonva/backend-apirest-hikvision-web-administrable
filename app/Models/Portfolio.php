@@ -11,7 +11,6 @@ class Portfolio extends Model
 
     protected $fillable = [
         'portfolio_category_id',
-        'main_title',
         'img_portfolio',
         'name_portfolio',
     ];
@@ -47,7 +46,6 @@ class Portfolio extends Model
                 'id' => $this->category->id,
                 'title_portfolio_category' => $this->category->title_portfolio_category,
             ] : null,
-            'main_title' => $this->main_title,
             'img_portfolio' => $this->img_portfolio_url,
             'name_portfolio' => $this->name_portfolio,
         ];

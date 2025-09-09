@@ -15,7 +15,6 @@ class UpdatePortfolioRequest extends FormRequest
     {
         return [
             'portfolio_category_id' => 'sometimes|exists:portfolio_categories,id',
-            'main_title'            => 'sometimes|string|max:150',
             'img_portfolio'         => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'name_portfolio'        => 'sometimes|string|max:150',
         ];

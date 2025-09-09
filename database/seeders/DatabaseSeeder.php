@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CounterServiceSeeder::class,
             PortfolioCategorySeeder::class,
             InformationContactSeeder::class,
+            ChooseUsSeeder::class,
         ]);
     }
 }

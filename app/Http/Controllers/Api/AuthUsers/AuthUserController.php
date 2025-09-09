@@ -42,7 +42,7 @@ class AuthUserController extends Controller
                 'expires_in' => JWTAuth::factory()->getTTL()
             ], 200);
         } catch (\Exception $e) { 
-            return response()->json(['error' => $e->getMessage()], 401); // Muestra el mensaje de la excepción
+            return response()->json(['error' => $e->getMessage()], 401); 
         }
     }
 

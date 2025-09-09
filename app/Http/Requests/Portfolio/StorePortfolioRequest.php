@@ -15,7 +15,6 @@ class StorePortfolioRequest extends FormRequest
     {
         return [
             'portfolio_category_id' => 'required|exists:portfolio_categories,id',
-            'main_title'            => 'required|string|max:150',
             'img_portfolio'         => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'name_portfolio'        => 'required|string|max:150',
         ];

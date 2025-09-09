@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('payment_plan', function (Blueprint $table) {
             $table->id();
-            $table->string('main_title', 150);
             $table->string('icon_img_payment_plan')->nullable(); 
             $table->string('name_plan', 100);
             $table->decimal('price_plan', 8, 2);

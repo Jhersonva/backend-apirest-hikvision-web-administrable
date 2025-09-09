@@ -15,7 +15,6 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'service_category_id'    => 'required|exists:service_categories,id',
-            'main_title'             => 'required|string|max:150',
             'icon_service'           => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
             'name_services'          => 'required|string|max:100',
             'description_services'   => 'required|string',

@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\AboutUs;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 class AboutUsService

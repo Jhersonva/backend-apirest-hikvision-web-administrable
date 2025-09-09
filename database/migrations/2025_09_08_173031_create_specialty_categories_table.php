@@ -8,17 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('portfolios', function (Blueprint $table) {
+        Schema::create('specialty_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('portfolio_category_id')->constrained('portfolio_categories')->onDelete('cascade'); 
-            $table->string('img_portfolio')->nullable();
-            $table->string('name_portfolio', 150);
+            $table->string('specialty_name', 250);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('portfolios');
+        Schema::dropIfExists('specialty_categories');
     }
 };
+
