@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\Partner\PartnerController;
 use App\Http\Controllers\Api\OurTeam\OurTeamController;
 use App\Http\Controllers\Api\SpecialtyCategory\SpecialtyCategoryController;
 use App\Http\Controllers\Api\Testimonial\TestimonialController;
@@ -149,6 +150,11 @@ Route::prefix('admin')->group(function () {
             Route::post('our-team', [OurTeamController::class, 'store']);
             Route::put('our-team/{id}', [OurTeamController::class, 'update']);
             Route::delete('our-team/{id}', [OurTeamController::class, 'destroy']);
+        
+            Route::get('partners', [PartnerController::class, 'index']);
+            Route::post('partners', [PartnerController::class, 'store']);
+            Route::put('partners/{id}', [PartnerController::class, 'update']);
+            Route::delete('partners/{id}', [PartnerController::class, 'destroy']);
         });
     });
 });
