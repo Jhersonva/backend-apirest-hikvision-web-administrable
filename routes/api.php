@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\CategoryProduct\CategoryProductController;
 use App\Http\Controllers\Api\Blog\BlogController;
 use App\Http\Controllers\Api\BannerPage\BannerPageController;
 use App\Http\Controllers\Api\Faq\FaqController;
@@ -170,10 +171,17 @@ Route::prefix('admin')->group(function () {
             Route::get('banner-pages', [BannerPageController::class, 'index']);       
             Route::put('banner-pages/{id}', [BannerPageController::class, 'update']);  
 
+            // Blogs
             Route::get('blogs', [BlogController::class, 'index']);
             Route::post('blogs/', [BlogController::class, 'store']);
             Route::put('blogs/{id}', [BlogController::class, 'update']);
             Route::delete('blogs/{id}', [BlogController::class, 'destroy']);
+
+            // CategoryProducts
+            Route::get('category-products', [CategoryProductController::class, 'index']);
+            Route::post('category-products', [CategoryProductController::class, 'store']);
+            Route::put('category-products/{id}', [CategoryProductController::class, 'update']);
+            Route::delete('category-products/{id}', [CategoryProductController::class, 'destroy']);
         });
     });
 });
