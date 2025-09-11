@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             InformationContactSeeder::class,
             ChooseUsSeeder::class,
             BannerPageSeeder::class,
+            CategoryProductAndProductSeeder::class,
+            StoreSeeder::class,
         ]);
     }
 }

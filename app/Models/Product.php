@@ -41,7 +41,19 @@ class Product extends Model
         return $this->belongsTo(CategoryProduct::class, 'category_product_id');
     }
 
-    // Forzar orden del JSON
+    // Relación con ProductDetail
+    public function productDetail()
+    {
+        return $this->hasOne(ProductDetail::class);
+    }
+
+    // Relación con ProductInstallation
+    public function productInstallation()
+    {
+        return $this->hasOne(ProductInstallation::class);
+    }
+
+    // Forzar orden del JSON incluyendo ProductDetail
     public function toArray()
     {
         return [
@@ -53,6 +65,8 @@ class Product extends Model
             'offer_price' => $this->offer_price,
             'star_quality' => $this->star_quality,
             'category_product' => $this->categoryProduct ? $this->categoryProduct->name_category_products : null,
+            'product_detail' => $this->productDetail ? $this->productDetail->toArray() : null,
+            'product_installation' => $this->productInstallation ? $this->productInstallation->toArray() : null,
         ];
     }
 }

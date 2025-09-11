@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\Store\StoreController;
+use App\Http\Controllers\Api\ProductInstallation\WhatIncludesInstallationController;
+use App\Http\Controllers\Api\ProductInstallation\ProductInstallationController;
+use App\Http\Controllers\Api\ProductDetail\WhatIncludesController;
+use App\Http\Controllers\Api\ProductDetail\ProductDetailController;
+use App\Http\Controllers\Api\Product\ProductController;
 use App\Http\Controllers\Api\CategoryProduct\CategoryProductController;
 use App\Http\Controllers\Api\Blog\BlogController;
 use App\Http\Controllers\Api\BannerPage\BannerPageController;
@@ -182,6 +188,36 @@ Route::prefix('admin')->group(function () {
             Route::post('category-products', [CategoryProductController::class, 'store']);
             Route::put('category-products/{id}', [CategoryProductController::class, 'update']);
             Route::delete('category-products/{id}', [CategoryProductController::class, 'destroy']);
+
+            // Product
+            Route::get('products', [ProductController::class, 'index']);
+            Route::post('products', [ProductController::class, 'store']);
+            Route::put('products/{id}', [ProductController::class, 'update']);
+            Route::delete('products/{id}', [ProductController::class, 'destroy']);
+
+                // ProductDetail
+                Route::post('products/{productId}/detail', [ProductDetailController::class, 'store']);
+                Route::put('products/{productId}/detail', [ProductDetailController::class, 'update']);
+
+                    // WhatIncludes
+                    Route::get('products/{productId}/detail/what-includes', [WhatIncludesController::class, 'index']);
+                    Route::post('products/{productId}/detail/what-includes', [WhatIncludesController::class, 'store']);
+                    Route::put('products/{productId}/detail/what-includes/{index}', [WhatIncludesController::class, 'update']);
+                    Route::delete('products/{productId}/detail/what-includes/{index}', [WhatIncludesController::class, 'destroy']);
+            
+                // ProductInstallation
+                Route::post('products/{productId}/installation', [ProductInstallationController::class, 'store']);   
+                Route::put('products/{productId}/installation', [ProductInstallationController::class, 'update']);   
+
+                    // WhatIncludes
+                    Route::get('products/{productId}/installation/what-includes', [WhatIncludesInstallationController::class, 'index']);
+                    Route::post('products/{productId}/installation/what-includes', [WhatIncludesInstallationController::class, 'store']);
+                    Route::put('products/{productId}/installation/what-includes/{index}', [WhatIncludesInstallationController::class, 'update']);
+                    Route::delete('products/{productId}/installation/what-includes/{index}', [WhatIncludesInstallationController::class, 'destroy']);
+            
+            // Store
+            Route::get('store', [StoreController::class, 'show']);
+            Route::put('store/update', [StoreController::class, 'update']);
         });
     });
 });
