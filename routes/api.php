@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\ContactForm\ContactFormController;
+use App\Http\Controllers\Api\Contact\ContactController;
 use App\Http\Controllers\Api\Store\StoreController;
 use App\Http\Controllers\Api\ProductInstallation\WhatIncludesInstallationController;
 use App\Http\Controllers\Api\ProductInstallation\ProductInstallationController;
@@ -35,6 +37,8 @@ use App\Http\Controllers\Api\AuthUsers\AuthUserController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsUserAuth;
 
+Route::post('user/contact-forms', [ContactFormController::class, 'store']); 
+
 Route::prefix('admin')->group(function () {
     // Rutas públicas
     Route::post('register', [AuthUserController::class, 'registerUser']);
@@ -58,7 +62,7 @@ Route::prefix('admin')->group(function () {
 
             //ContactInformationCompany
             Route::get('contact-information-company', [ContactInformationCompanyController::class, 'index']);
-            Route::post('contact-information-company', [ContactInformationCompanyController::class, 'update']);
+            Route::post('contact-information-company/update', [ContactInformationCompanyController::class, 'update']);
 
             //SocialNetwork
             Route::get('social-networks', [SocialNetworkController::class, 'index']);
@@ -218,6 +222,15 @@ Route::prefix('admin')->group(function () {
             // Store
             Route::get('store', [StoreController::class, 'show']);
             Route::put('store/update', [StoreController::class, 'update']);
+
+            // Contact
+            Route::get('contact', [ContactController::class, 'show']);      
+            Route::put('contact/update', [ContactController::class, 'update']);  
+
+            // ContactForm
+            Route::get('/contact-forms', [ContactFormController::class, 'index']);
+            Route::get('/contact-forms/{id}', [ContactFormController::class, 'show']);
+            Route::delete('/contact-forms/{id}', [ContactFormController::class, 'destroy']);
         });
     });
 });

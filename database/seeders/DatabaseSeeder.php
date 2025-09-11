@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             BannerPageSeeder::class,
             CategoryProductAndProductSeeder::class,
             StoreSeeder::class,
+            ContactSeeder::class,
         ]);
     }
 }
