@@ -12,9 +12,10 @@ class SocialNetworksSeeder extends Seeder
         $socialNetworks = [
             [
                 'name_social_networks' => 'Facebook',
-                'icon_img' => 'https://cdn-icons-png.flaticon.com/512/733/733547.png',
-                'profile_url' => 'https://www.facebook.com/yourpage',
+                'icon_img' => null,
+                'profile_url' => 'https://www.facebook.com/profile.php?id=61577989558253',
             ],
+            /*
             [
                 'name_social_networks' => 'Instagram',
                 'icon_img' => 'https://cdn-icons-png.flaticon.com/512/2111/2111463.png',
@@ -29,7 +30,7 @@ class SocialNetworksSeeder extends Seeder
                 'name_social_networks' => 'Twitter',
                 'icon_img' => 'https://cdn-icons-png.flaticon.com/512/733/733579.png',
                 'profile_url' => 'https://twitter.com/yourprofile',
-            ],
+            ],*/
         ];
 
         foreach ($socialNetworks as $network) {

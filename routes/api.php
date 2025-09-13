@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\Image\ImageController;
+use App\Http\Controllers\Api\ImageCategory\ImageCategoryController;
 use App\Http\Controllers\Api\ContactForm\ContactFormController;
 use App\Http\Controllers\Api\Contact\ContactController;
 use App\Http\Controllers\Api\Store\StoreController;
@@ -55,14 +57,26 @@ Route::prefix('admin')->group(function () {
 
             // Section Title
             Route::get('section-titles', [SectionTitleController::class, 'index']);
-            Route::get('section-titles/{id}', [SectionTitleController::class, 'show']);
+            //Route::get('section-titles/{id}', [SectionTitleController::class, 'show']);
             Route::post('section-titles/', [SectionTitleController::class, 'store']);
             Route::put('section-titles/{id}', [SectionTitleController::class, 'update']);
             Route::delete('section-titles/{id}', [SectionTitleController::class, 'destroy']);
 
+            // ImageCategory
+            Route::get('image-categories', [ImageCategoryController::class, 'index']);
+            //Route::get('image-categories/{id}', [ImageCategoryController::class, 'show']);
+            Route::post('image-categories', [ImageCategoryController::class, 'store']);
+            Route::put('image-categories/{id}', [ImageCategoryController::class, 'update']);
+            Route::delete('image-categories/{id}', [ImageCategoryController::class, 'destroy']);
+
+            // Images
+            Route::get('images', [ImageController::class, 'index']);
+            Route::post('images', [ImageController::class, 'store']);
+            Route::delete('images/{id}', [ImageController::class, 'destroy']);
+
             //ContactInformationCompany
             Route::get('contact-information-company', [ContactInformationCompanyController::class, 'index']);
-            Route::post('contact-information-company/update', [ContactInformationCompanyController::class, 'update']);
+            Route::put('contact-information-company/update', [ContactInformationCompanyController::class, 'update']);
 
             //SocialNetwork
             Route::get('social-networks', [SocialNetworkController::class, 'index']);

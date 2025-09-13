@@ -28,7 +28,15 @@ class SocialNetwork extends Model
 
     public function getIconImgUrlAttribute()
     {
-        return $this->icon_img ? asset('storage/' . $this->icon_img) : null;
+        if (!$this->icon_img) return null;
+
+        // Si ya es una URL completa, devuélvela tal cual
+        if (filter_var($this->icon_img, FILTER_VALIDATE_URL)) {
+            return $this->icon_img;
+        }
+
+        // Si es un archivo local almacenado en storage
+        return asset('storage/' . $this->icon_img);
     }
 
     // Forzar el orden del JSON
@@ -42,4 +50,3 @@ class SocialNetwork extends Model
         ];
     }
 }
-

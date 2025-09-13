@@ -21,7 +21,8 @@ class UpdateSocialNetworkRequest extends FormRequest
                 'max:15',
                 Rule::unique('social_networks', 'name_social_networks')->ignore($this->route('id'), 'id'),
             ],
-            'icon_img' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'icon_img' => 'nullable|image|mimes:jpg,jpeg,png,svg,webp|max:2048',
+            'icon_url' => 'nullable|url|max:500', 
             'profile_url' => 'nullable|url|max:255',
         ];
     }
