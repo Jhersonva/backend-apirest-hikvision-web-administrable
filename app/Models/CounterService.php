@@ -10,7 +10,7 @@ class CounterService extends Model
     use HasFactory;
 
     protected $fillable = [
-        'main_img',
+        //'main_img',
         'icon_img',
         'counter',
         'name_counter_services',
@@ -22,12 +22,7 @@ class CounterService extends Model
     ];
 
     // Accessors para devolver URL completa de las imágenes
-    protected $appends = ['main_img_url', 'icon_img_url'];
-
-    public function getMainImgUrlAttribute()
-    {
-        return $this->main_img ? asset('storage/' . $this->main_img) : null;
-    }
+    protected $appends = ['icon_img_url'];
 
     public function getIconImgUrlAttribute()
     {
@@ -39,7 +34,7 @@ class CounterService extends Model
     {
         return [
             'id' => $this->id,
-            'main_img' => $this->main_img_url,
+            //'main_img' => $this->main_img_url,
             'icon_img' => $this->icon_img_url,
             'counter' => $this->counter,
             'name_counter_services' => $this->name_counter_services,

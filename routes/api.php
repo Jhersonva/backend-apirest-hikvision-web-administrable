@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\PaymentPlan\PaymentPlanController;
 use App\Http\Controllers\Api\InformationContact\InformationContactController;
 use App\Http\Controllers\Api\Portfolio\PortfolioController;
 use App\Http\Controllers\Api\PortfolioCategory\PortfolioCategoryController;
+use App\Http\Controllers\Api\CounterService\CounterServiceMainImageController;
 use App\Http\Controllers\Api\CounterService\CounterServiceController;
 use App\Http\Controllers\Api\Servics\ServiceController;
 use App\Http\Controllers\Api\ServiceCategory\ServiceCategoryController;
@@ -124,6 +125,10 @@ Route::prefix('admin')->group(function () {
             // CounterServices
             Route::get('counter-services', [CounterServiceController::class, 'index']);
             Route::put('counter-services/{id}', [CounterServiceController::class, 'update']);
+
+            // CounterServices-Imagen
+            Route::get('/counter-service-main-image', [CounterServiceMainImageController::class, 'index']);
+            Route::put('/counter-service-main-image/update', [CounterServiceMainImageController::class, 'update']);
 
             // PortfolioCategory
             Route::get('portfolio-categories', [PortfolioCategoryController::class, 'index']);

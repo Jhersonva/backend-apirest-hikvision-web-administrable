@@ -14,25 +14,25 @@ class CounterServiceSeeder extends Seeder
     {
         $counters = [
             [
-                'main_img' => null, // puedes cargar imágenes luego
+                //'main_img' => null, // puedes cargar imágenes luego
                 'icon_img' => null,
                 'counter' => '150+',
                 'name_counter_services' => 'Clientes felices',
             ],
             [
-                'main_img' => null,
+                //'main_img' => null,
                 'icon_img' => null,
                 'counter' => '50+',
                 'name_counter_services' => 'Proyectos completados',
             ],
             [
-                'main_img' => null,
+                //'main_img' => null,
                 'icon_img' => null,
                 'counter' => '25',
                 'name_counter_services' => 'Miembros del equipo',
             ],
             [
-                'main_img' => null,
+                //'main_img' => null,
                 'icon_img' => null,
                 'counter' => '10',
                 'name_counter_services' => 'Años de experiencia',

@@ -18,13 +18,14 @@ class CounterServiceService
         $counter = CounterService::findOrFail($id);
 
         // Guardado de main_img
+        /*
         if (isset($data['main_img']) && $data['main_img'] instanceof UploadedFile) {
             if ($counter->main_img && Storage::disk('public')->exists($counter->main_img)) {
                 Storage::disk('public')->delete($counter->main_img);
             }
             $path = $data['main_img']->store('counter_services', 'public');
             $data['main_img'] = $path;
-        }
+        }*/
 
         // Guardado de icon_img
         if (isset($data['icon_img']) && $data['icon_img'] instanceof UploadedFile) {

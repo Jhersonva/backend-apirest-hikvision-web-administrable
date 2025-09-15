@@ -14,7 +14,7 @@ class UpdateCounterServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_img' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+            //'main_img' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'icon_img' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'counter' => 'sometimes|string|max:10',
             'name_counter_services' => 'sometimes|string|max:50',

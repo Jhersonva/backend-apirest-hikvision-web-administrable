@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('counter_services', function (Blueprint $table) {
             $table->id();
-            $table->string('main_img')->nullable();
+            //$table->string('main_img')->nullable();
             $table->string('icon_img')->nullable();
             $table->string('counter', 10);
             $table->string('name_counter_services', 50);
