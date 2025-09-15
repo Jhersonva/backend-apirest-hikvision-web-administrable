@@ -16,7 +16,7 @@ class StoreImageRequest extends FormRequest
         return [
             'image_category_id' => 'required|exists:image_categories,id',
             'title' => 'required|string|max:255',
-            'file' => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'file' => 'required|mimes:jpg,jpeg,png,webp,gif,svg,ico|max:5120', // 5MB
         ];
     }
 }
