@@ -27,6 +27,7 @@ class PaymentPlanService
     {
         $plan = PaymentPlan::findOrFail($id);
 
+        // Solo si viene un archivo nuevo
         if (isset($data['icon_img_payment_plan']) && $data['icon_img_payment_plan'] instanceof UploadedFile) {
             if ($plan->icon_img_payment_plan && Storage::disk('public')->exists($plan->icon_img_payment_plan)) {
                 Storage::disk('public')->delete($plan->icon_img_payment_plan);
@@ -34,6 +35,9 @@ class PaymentPlanService
 
             $path = $data['icon_img_payment_plan']->store('payment_plans', 'public');
             $data['icon_img_payment_plan'] = $path;
+        } else {
+            // Evitar que Laravel ponga null si no se envió imagen
+            unset($data['icon_img_payment_plan']);
         }
 
         $plan->update($data);

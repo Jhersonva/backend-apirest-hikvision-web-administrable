@@ -14,7 +14,6 @@ class StorePaymentPlanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_title' => 'required|string|max:150',
             'icon_img_payment_plan' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'name_plan' => 'required|string|max:50',
             'price_plan' => 'required|numeric|min:0',

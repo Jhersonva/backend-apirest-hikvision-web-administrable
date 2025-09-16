@@ -14,7 +14,6 @@ class UpdatePaymentPlanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_title' => 'sometimes|required|string|max:150',
             'icon_img_payment_plan' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'name_plan' => 'sometimes|required|string|max:50',
             'price_plan' => 'sometimes|required|numeric|min:0',

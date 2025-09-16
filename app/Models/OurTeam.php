@@ -47,7 +47,7 @@ class OurTeam extends Model
         return [
             'id' => $this->id,
             'name_employee' => $this->name_employee,
-            'img_our_team_url' => $this->img_our_team_url,
+            'img_our_team' => $this->img_our_team_url,
             'specialty_category' => $this->specialtyCategory 
                 ? $this->specialtyCategory->specialty_name 
                 : null,

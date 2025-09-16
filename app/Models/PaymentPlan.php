@@ -12,7 +12,6 @@ class PaymentPlan extends Model
     protected $table = 'payment_plan';
 
     protected $fillable = [
-        'main_title',
         'icon_img_payment_plan',
         'name_plan',
         'price_plan',
@@ -42,7 +41,6 @@ class PaymentPlan extends Model
     {
         return [
             'id' => $this->id,
-            'main_title' => $this->main_title,
             'name_plan' => $this->name_plan,
             'price_plan' => $this->price_plan,
             'list_plan' => $this->list_plan,
