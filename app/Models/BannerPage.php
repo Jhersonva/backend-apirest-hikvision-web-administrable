@@ -36,7 +36,7 @@ class BannerPage extends Model
         return [
             'id' => $this->id,
             'main_title' => $this->main_title,
-            'img_banner_page_url' => $this->img_banner_page_url,
+            'img_banner_page' => $this->img_banner_page_url,
         ];
     }
 }

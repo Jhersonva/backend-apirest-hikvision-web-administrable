@@ -36,7 +36,7 @@ class Partner extends Model
         return [
             'id' => $this->id,
             'name_partner' => $this->name_partner,
-            'img_partner_url' => $this->img_partner_url,
+            'img_partner' => $this->img_partner_url,
         ];
     }
 }

@@ -42,7 +42,7 @@ class Blog extends Model
             'user_blog' => $this->user_blog,
             'date_blog' => $this->date_blog,
             'description_blog' => $this->description_blog,
-            'img_blog_url' => $this->img_blog_url,
+            'img_blog' => $this->img_blog_url,
         ];
     }
 }
