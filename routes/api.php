@@ -219,6 +219,7 @@ Route::prefix('admin')->group(function () {
             Route::delete('products/{id}', [ProductController::class, 'destroy']);
 
                 // ProductDetail
+                Route::get('products/{productId}/detail', [ProductDetailController::class, 'show']); 
                 Route::post('products/{productId}/detail', [ProductDetailController::class, 'store']);
                 Route::put('products/{productId}/detail', [ProductDetailController::class, 'update']);
 
@@ -229,6 +230,7 @@ Route::prefix('admin')->group(function () {
                     Route::delete('products/{productId}/detail/what-includes/{index}', [WhatIncludesController::class, 'destroy']);
             
                 // ProductInstallation
+                Route::get('products/{productId}/installation', [ProductInstallationController::class, 'show']);
                 Route::post('products/{productId}/installation', [ProductInstallationController::class, 'store']);   
                 Route::put('products/{productId}/installation', [ProductInstallationController::class, 'update']);   
 

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductDetailService
 {
+    public function getByProduct(Product $product): ?ProductDetail
+    {
+        return $product->productDetail;
+    }
+
     public function create(Product $product, array $data): ProductDetail
     {
         if ($product->productDetail) {

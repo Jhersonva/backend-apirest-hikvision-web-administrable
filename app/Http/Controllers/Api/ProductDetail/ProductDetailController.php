@@ -19,6 +19,20 @@ class ProductDetailController extends Controller
         $this->productDetailService = $productDetailService;
     }
 
+    // Mostrar detalle de un producto
+    public function show(int $productId): JsonResponse
+    {
+        $product = Product::with('productDetail')->findOrFail($productId);
+
+        if (!$product->productDetail) {
+            return response()->json([
+                'message' => 'Este producto no tiene detalle registrado'
+            ], 404);
+        }
+
+        return response()->json($product->productDetail, 200);
+    }
+
     // Crear detalle de un producto
     public function store(StoreProductDetailRequest $request, int $productId): JsonResponse
     {

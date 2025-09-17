@@ -47,7 +47,7 @@ class ProductInstallation extends Model
             'id' => $this->id,
             'product' => $this->product ? $this->product->name_product : null,
             'description_product_installation' => $this->description_product_installation,
-            'img_product_installation_url' => $this->img_product_installation_url,
+            'img_product_installation' => $this->img_product_installation_url,
             'what_includes' => $this->what_includes,
         ];
     }

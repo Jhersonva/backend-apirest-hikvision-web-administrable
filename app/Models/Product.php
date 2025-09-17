@@ -59,7 +59,7 @@ class Product extends Model
         return [
             'id' => $this->id,
             'name_product' => $this->name_product,
-            'img_product_url' => $this->img_product_url,
+            'img_product' => $this->img_product_url,
             'state_offer' => $this->state_offer,
             'not_offer_price' => $this->not_offer_price,
             'offer_price' => $this->offer_price,

@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductInstallationService
 {
+    public function getByProduct(Product $product): ?ProductInstallation
+    {
+        return $product->productInstallation; 
+    }
+
     /**
      * Crear un registro de instalación para un producto.
      */

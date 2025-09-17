@@ -19,6 +19,20 @@ class ProductInstallationController extends Controller
         $this->service = $service;
     }
 
+    // GET /api/products/{productId}/installation
+    public function show(int $productId): JsonResponse
+    {
+        $product = Product::with('productInstallation')->findOrFail($productId);
+
+        if (!$product->productInstallation) {
+            return response()->json([
+                'message' => 'Este producto no tiene instalación registrada'
+            ], 404);
+        }
+
+        return response()->json($product->productInstallation, 200);
+    }
+
     // POST /api/products/{productId}/installation
     public function store(StoreProductInstallationRequest $request, int $productId): JsonResponse
     {
