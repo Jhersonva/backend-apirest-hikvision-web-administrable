@@ -11,7 +11,7 @@ class FeatureSeeder extends Seeder
     {
         DB::table('features')->insert([
             [
-                'icon_img_feature' => 'features/feature1.png',
+                'icon_img_feature' => null,
                 'name_feature' => 'Rendimiento Óptimo',
                 'description' => 'Nuestro sistema garantiza la máxima velocidad y eficiencia en cada proceso.',
                 'created_at' => now(),

@@ -8,7 +8,7 @@ class SectionTitle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['section_name'];
+    protected $fillable = ['section_name', 'description'];
 
     protected $hidden = [
         'created_at',
@@ -20,7 +20,8 @@ class SectionTitle extends Model
     {
         return [
             'id' => $this->id,
-            'section_name' => $this->section_name
+            'section_name' => $this->section_name,
+            'description' => $this->description
         ];
     }
 }

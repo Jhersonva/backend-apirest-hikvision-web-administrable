@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\VideoInformationAndSolution;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\VideoInformationAndSolution\UpdateVideoInformationAndSolutionRequest;
 use App\Services\VideoInformationAndSolutionService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class VideoInformationAndSolutionController extends Controller
@@ -16,16 +16,17 @@ class VideoInformationAndSolutionController extends Controller
         $this->service = $service;
     }
 
-    // Obtener info
-    public function getInfo()
+    // GET /api/video-information-and-solution
+    public function index(): JsonResponse
     {
-        return response()->json($this->service->getInfo());
+        return response()->json($this->service->getAll(), 200);
     }
 
-    // Actualizar info + imagen
-    public function update(UpdateVideoInformationAndSolutionRequest $request)
+    // PUT /api/video-information-and-solution/{id}
+    public function update(Request $request, int $id): JsonResponse
     {
-        $video = $this->service->updateInfo($request->all());
-        return response()->json($video);
+        $video = $this->service->update($id, $request->all());
+
+        return response()->json($video, 200);
     }
 }

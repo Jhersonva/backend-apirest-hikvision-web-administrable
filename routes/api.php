@@ -40,7 +40,78 @@ use App\Http\Controllers\Api\AuthUsers\AuthUserController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsUserAuth;
 
-Route::post('user/contact-forms', [ContactFormController::class, 'store']); 
+// Rutas públicas user
+Route::prefix('user')->group(function () {
+
+    // Section Title
+    Route::get('section-titles', [SectionTitleController::class, 'index']);
+
+    // Form Contact User
+    Route::post('contact-forms', [ContactFormController::class, 'store']); 
+
+    // ContactInformationCompany
+    Route::get('contact-information-company', [ContactInformationCompanyController::class, 'index']);
+
+    // SocialNetwork
+    Route::get('social-networks', [SocialNetworkController::class, 'index']);
+
+    // Carrusel
+    Route::get('carousels', [CarouselController::class, 'index']);
+
+    // Features
+    Route::get('features', [FeatureController::class, 'index']);
+    
+    // AboutUs
+    Route::get('about-us', [AboutUsController::class, 'getInfo']);
+
+    // VideoInformationAndSolution
+    Route::get('video-information-and-solution', [VideoInformationAndSolutionController::class, 'index']);
+
+    // ServiceCategory
+    Route::get('service-categories', [ServiceCategoryController::class, 'index']);
+
+    // CounterServices
+    Route::get('counter-services', [CounterServiceController::class, 'index']);
+
+    // CounterServices-Imagen
+    Route::get('counter-service-main-image', [CounterServiceMainImageController::class, 'index']);
+    
+    // PortfolioCategory
+    Route::get('portfolio-categories', [PortfolioCategoryController::class, 'index']);
+
+    // Portfolio
+    Route::get('portfolios', [PortfolioController::class, 'index']);
+    
+    // InformationContact
+    Route::get('information-contact', [InformationContactController::class, 'getInfo']);
+
+    // PaymentPlan
+    Route::get('payment-plans', [PaymentPlanController::class, 'index']);
+
+    // ChooseUs
+    Route::get('choose-us', [ChooseUsController::class, 'getInfo']);
+
+    // Testimonial
+    Route::get('testimonials', [TestimonialController::class, 'index']);
+
+    // OurTeam
+    Route::get('our-team', [OurTeamController::class, 'index']);
+
+    // Partners
+    Route::get('partners', [PartnerController::class, 'index']);
+
+    // Faq
+    Route::get('faqs', [FaqController::class, 'index']);
+
+    // BannerPages
+    Route::get('banner-pages', [BannerPageController::class, 'index']);
+
+    // Blogs
+    Route::get('blogs', [BlogController::class, 'index']);
+
+    // Contact
+    Route::get('contact', [ContactController::class, 'show']);  
+});
 
 Route::prefix('admin')->group(function () {
     // Rutas públicas
@@ -107,8 +178,8 @@ Route::prefix('admin')->group(function () {
                 Route::delete('about-us/list/{index}', [AboutUsController::class, 'deleteList']);
 
             // VideoInformationAndSolution
-            Route::get('video-information-and-solution', [VideoInformationAndSolutionController::class, 'getInfo']);
-            Route::put('video-information-and-solution/update', [VideoInformationAndSolutionController::class, 'update']);
+            Route::get('video-information-and-solution', [VideoInformationAndSolutionController::class, 'index']);
+            Route::put('video-information-and-solution/{id}', [VideoInformationAndSolutionController::class, 'update']);
 
             // ServiceCategory
             Route::get('service-categories', [ServiceCategoryController::class, 'index']);

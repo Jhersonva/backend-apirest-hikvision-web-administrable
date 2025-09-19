@@ -50,7 +50,7 @@ class Store extends Model
             'id' => $this->id,
             'category_product' => $this->categoryProduct ? $this->categoryProduct->name_category_products : null,
             'product' => $this->product ? $this->product->name_product : null,
-            'img_store_discount_url' => $this->img_store_discount_url,
+            'img_store_discount' => $this->img_store_discount_url,
             'range_price_start' => $this->range_price_start,
             'range_price_end' => $this->range_price_end,
         ];

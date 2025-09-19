@@ -13,7 +13,8 @@ class SectionTitleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'section_name' => 'required|string|max:100|unique:section_titles,section_name,' . $this->id,
+            'section_name' => 'sometimes|string|max:100|unique:section_titles,section_name,' . $this->id,
+            'description' => 'nullable|string'
         ];
     }
 }

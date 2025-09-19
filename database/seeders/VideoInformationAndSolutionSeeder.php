@@ -12,11 +12,20 @@ class VideoInformationAndSolutionSeeder extends Seeder
      */
     public function run(): void
     {
+        // Registro 1 con URL de video
         VideoInformationAndSolution::create([
             'url_video_yt' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             'icon_img' => null,
             'name_information_solution' => 'Soluciones Innovadoras',
-            'description' => 'Este video explica cómo nuestra empresa brinda soluciones tecnológicas innovadoras para resolver problemas reales.',
+            'description' => 'Explicamos cómo nuestra empresa brinda soluciones tecnológicas innovadoras.',
+        ]);
+
+        // Registro 2 sin URL de video
+        VideoInformationAndSolution::create([
+            'url_video_yt' => null,
+            'icon_img' => null,
+            'name_information_solution' => 'Transformación Digital',
+            'description' => 'Mostramos cómo apoyamos a las empresas en su transformación digital.',
         ]);
     }
 }

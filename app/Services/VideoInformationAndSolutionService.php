@@ -8,29 +8,31 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoInformationAndSolutionService
 {
-    public function getInfo()
+    // Obtener todos
+    public function getAll()
     {
-        return VideoInformationAndSolution::first();
+        return VideoInformationAndSolution::all();
     }
 
-    public function updateInfo(array $data)
+    // Actualizar (respetando la regla de url_video_yt)
+    public function update(int $id, array $data)
     {
-        $video = VideoInformationAndSolution::first();
+        $video = VideoInformationAndSolution::findOrFail($id);
 
-        if (!$video) {
-            $video = new VideoInformationAndSolution();
+        // Solo el primer registro puede tener url_video_yt
+        if ($video->id !== 1) {
+            unset($data['url_video_yt']);
         }
 
-        // Si viene una imagen la guardamos
+        // Manejo de imagen
         if (isset($data['icon_img']) && $data['icon_img'] instanceof UploadedFile) {
             if ($video->icon_img && Storage::disk('public')->exists($video->icon_img)) {
                 Storage::disk('public')->delete($video->icon_img);
             }
-            $path = $data['icon_img']->store('video_information', 'public');
-            $data['icon_img'] = $path;
+            $data['icon_img'] = $data['icon_img']->store('video_information', 'public');
         }
 
-        $video->fill($data)->save();
+        $video->update($data);
 
         return $video;
     }
